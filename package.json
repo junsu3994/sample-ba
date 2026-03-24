@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "setup:local": "bash scripts/setup.sh",
+    "run:local": "bash scripts/run.sh"
   },
   "dependencies": {
     "next": "14.2.5",
