@@ -18,4 +18,15 @@ if [[ ! -x node_modules/.bin/next ]]; then
 fi
 
 echo "[run] starting Next.js dev server on http://${HOST}:${PORT}"
-exec npm run dev -- -H "$HOST" -p "$PORT"
+echo "[run] open from another device with: http://<SERVER_IP>:${PORT}"
+set +e
+npm run dev -- -H "$HOST" -p "$PORT"
+EXIT_CODE=$?
+set -e
+
+echo "[run] Next.js dev server stopped (exit code: ${EXIT_CODE})"
+if [[ $EXIT_CODE -ne 0 ]]; then
+  echo "[run] check 1) dependency install 2) port conflict 3) runtime errors" >&2
+fi
+
+exit $EXIT_CODE

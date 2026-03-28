@@ -163,3 +163,26 @@ cd create-basketball-matching-app-with-next.js-8dxw27
 npm run setup:local
 npm run run:local
 ```
+
+
+### 서버에서 `Starting...` 후 프롬프트로 돌아오는 경우
+
+아래 순서로 확인하세요.
+
+```bash
+# 1) 서버에서 실행 (이 터미널을 닫지 말기)
+cd ~/app/sample-ba
+npm run run:local
+
+# 2) 다른 SSH 세션에서 3000 포트 리슨 확인
+ss -ltnp | grep 3000
+
+# 3) 서버 내부 curl 확인
+curl -I http://127.0.0.1:3000
+```
+
+접속 주소는 `http://0.0.0.0:3000`가 아니라 아래입니다.
+
+- 같은 서버: `http://localhost:3000`
+- 같은 LAN 기기: `http://<서버내부IP>:3000`
+- 외부 인터넷: `http://<서버공인IP>:3000` + 방화벽/보안그룹 3000 허용
