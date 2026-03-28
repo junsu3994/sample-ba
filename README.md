@@ -61,3 +61,35 @@ git remote -v
 git remote add origin https://github.com/<owner>/<repo>.git
 git push -u origin main
 ```
+
+## 특정 브랜치로 서버에 받기
+
+사용자 요청값이 `codex/create-basketball-matching-app-with-next.js-8dxw27` 형태일 때,
+아래 두 경우로 나눠서 확인하면 됩니다.
+
+### 경우 A) 저장소명 자체가 `create-basketball-matching-app-with-next.js-8dxw27`
+
+```bash
+git clone https://github.com/codex/create-basketball-matching-app-with-next.js-8dxw27.git
+cd create-basketball-matching-app-with-next.js-8dxw27
+```
+
+### 경우 B) 저장소는 `create-basketball-matching-app-with-next.js`이고 브랜치가 `8dxw27`
+
+```bash
+git clone -b 8dxw27 --single-branch https://github.com/codex/create-basketball-matching-app-with-next.js.git
+cd create-basketball-matching-app-with-next.js
+```
+
+브랜치 존재 여부 먼저 확인:
+
+```bash
+git ls-remote --heads https://github.com/codex/create-basketball-matching-app-with-next.js.git
+```
+
+클론 후 실행:
+
+```bash
+npm run setup:local
+npm run run:local
+```
