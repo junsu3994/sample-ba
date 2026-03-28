@@ -163,19 +163,3 @@ cd create-basketball-matching-app-with-next.js-8dxw27
 npm run setup:local
 npm run run:local
 ```
-
-
-### `Starting...` 후 바로 종료될 때
-
-```bash
-# 로그 남기면서 백그라운드 실행
-npm run run:local:bg
-
-# 로그 확인
-tail -f .logs/next-dev.log
-```
-
-자주 원인:
-- 포트 충돌 (`3000` 이미 사용 중)
-- 의존성 설치 실패
-- 런타임 에러로 Next 프로세스 종료
