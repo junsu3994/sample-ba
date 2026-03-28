@@ -167,6 +167,8 @@ npm run run:local
 
 ### 서버에서 `Starting...` 후 프롬프트로 돌아오는 경우
 
+`scripts/run.sh`는 `npm run dev` 대신 `./node_modules/.bin/next dev`를 직접 실행하도록 구성되어, 실행 직후 프롬프트로 복귀하는 문제를 줄였습니다.
+
 아래 순서로 확인하세요.
 
 ```bash
